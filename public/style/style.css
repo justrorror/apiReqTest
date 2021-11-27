@@ -1,0 +1,32 @@
+.background {
+  padding:0;
+  margin:0;
+  background-image: url('../img/reigan.gif');
+  background-size: cover;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.icon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: auto;
+}
+
+.icons8 {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: auto;
+  top: 90%;
+}
+
+.icons8Link {
+  text-decoration: none;
+  color: white;
+}
