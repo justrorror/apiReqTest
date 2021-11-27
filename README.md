@@ -19,5 +19,5 @@ Query:
 **cURL:**
 
 ```bash
-curl --location -g --request GET 'http://localhost:3000/code-status?code=200&answer={"holiday":[{"title":"Christmas","date":"2021.12.25"},{"title":"New Year","date":"2022.01.01"}]}&type=xml'
+curl --location -g --request GET 'https://apireqtest.herokuapp.com/code-status?code=200&answer={"holiday":[{"title":"Christmas","date":"2021.12.25"},{"title":"New Year","date":"2022.01.01"}]}&type=xml'
 ```
