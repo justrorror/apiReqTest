@@ -1,23 +1,26 @@
 const express = require('express');
 const router = express.Router();
+const xml = require('xml');
+const validator = require('express-joi-validation').createValidator({})
+const schemas = require('./schemas/');
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.get('/', validator.query(schemas.codeStatus), (req, res, next) => {
   const { query } = req;
-  let answer;
+  let answer = query.answer;
 
-  if (query.code && Number(query.code) && Number(query.code) < 1000) {
-    res.status(query.code);
-  }
-  if (query.answer) {
-    try {
-      answer = JSON.parse(query.answer);
-    } catch (e) {
-      console.error(`Error: ${e.message}`);
+  res.status(query.code);
+
+  if (query.type === 'xml') {
+    const options = {
+      declaration: true
     }
+
+    answer = xml(answer, options);
+    res.type('xml');
   }
 
-  res.send(answer || { status: 'OK' });
+  res.send(answer);
 });
 
 module.exports = router;
