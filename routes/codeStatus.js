@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const xml = require('xml');
-const validator = require('express-joi-validation').createValidator({})
+const validator = require('express-joi-validation').createValidator({});
 const schemas = require('./schemas/');
 
 /* GET users listing. */
@@ -17,6 +17,10 @@ router.get('/', validator.query(schemas.codeStatus), (req, res, next) => {
     }
 
     answer = xml(answer, options);
+    res.type('xml');
+  }
+  if (query.answerXml) {
+    answer = query.answerXml;
     res.type('xml');
   }
 
